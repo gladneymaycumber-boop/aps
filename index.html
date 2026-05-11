@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de Perfil Oficial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .loading-bar { width: 0%; transition: width 2s ease-in-out; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <header class="bg-white border-b py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="font-bold text-xl text-blue-600 tracking-tight">SECURE<span class="text-gray-900">CHECK</span></div>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium text-gray-500">
+                <a href="#" class="hover:text-blue-600">Como funciona</a>
+                <a href="#" class="hover:text-blue-600">Segurança</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-2xl mx-auto px-4 py-12">
+        <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+            
+            <div class="flex justify-center mb-6">
+                <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full uppercase flex items-center">
+                    <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg>
+                    Conexão Segura
+                </span>
+            </div>
+
+            <h1 class="text-2xl md:text-3xl font-extrabold text-center mb-4 leading-tight">
+                Verificação de Compatibilidade de Perfil
+            </h1>
+            
+            <p class="text-gray-600 text-center mb-8">
+                Clique no botão abaixo para validar suas informações e liberar o acesso seguro ao portal de destino.
+            </p>
+
+            <div id="check-section" class="space-y-6">
+                <button onclick="startVerification()" id="btn-main" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition duration-300 transform hover:scale-[1.02] shadow-lg">
+                    INICIAR VERIFICAÇÃO AGORA
+                </button>
+            </div>
+
+            <div id="progress-area" class="hidden">
+                <div class="text-sm font-semibold text-gray-500 mb-2 flex justify-between">
+                    <span>Validando tokens de acesso...</span>
+                    <span id="percent">0%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                    <div id="bar" class="bg-blue-600 h-3 rounded-full loading-bar"></div>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-gray-100 text-sm text-gray-500 leading-relaxed">
+                <h3 class="font-bold text-gray-700 mb-2">Sobre este processo:</h3>
+                <p>Nossa tecnologia de validação garante que você seja redirecionado para a versão mais estável e segura do servidor. Este procedimento é gratuito e leva menos de 5 segundos. Não coletamos dados sensíveis durante esta etapa de transição.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-10 text-center text-xs text-gray-400">
+        <div class="flex justify-center space-x-4 mb-4">
+            <a href="#" class="underline hover:text-gray-600">Políticas de Privacidade</a>
+            <a href="#" class="underline hover:text-gray-600">Termos de Uso</a>
+            <a href="#" class="underline hover:text-gray-600">Contato</a>
+        </div>
+        <p>&copy; 2026 SecureCheck Verificações LTDA. Todos os direitos reservados.</p>
+        <p class="mt-2 px-4 italic">Este site não faz parte do Google ou da Google Inc. Além disso, este site NÃO é endossado pelo Google de nenhuma maneira.</p>
+    </footer>
+
+    <script>
+        function startVerification() {
+            const btn = document.getElementById('btn-main');
+            const progress = document.getElementById('progress-area');
+            const bar = document.getElementById('bar');
+            const percent = document.getElementById('percent');
+
+            btn.classList.add('hidden');
+            progress.classList.remove('hidden');
+
+            let width = 0;
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    // REDIRECIONAMENTO FINAL
+                    window.location.href = "https://SEU-LINK-AQUI.com"; 
+                } else {
+                    width += Math.floor(Math.random() * 15) + 5;
+                    if(width > 100) width = 100;
+                    bar.style.width = width + '%';
+                    percent.innerText = width + '%';
+                }
+            }, 400);
+        }
+    </script>
+</body>
+</html>
