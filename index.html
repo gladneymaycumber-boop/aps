@@ -26,6 +26,7 @@
 </style>
 </head>
 <body class="min-h-screen bg-gradient-to-b from-brand-50 via-white to-brand-50 text-slate-800">
+
   <header class="mx-auto max-w-3xl flex items-center justify-between px-6 py-5">
     <div class="flex items-center gap-2">
       <div class="h-9 w-9 rounded-xl bg-brand-500 text-white flex items-center justify-center font-bold">V</div>
@@ -54,6 +55,7 @@
         <li class="flex items-start gap-3"><span class="text-brand-500">✓</span> Disponível 24 horas por dia</li>
       </ul>
 
+      <!-- Slide to confirm -->
       <div id="track" class="relative h-16 w-full select-none overflow-hidden rounded-full bg-brand-100 shadow-inner">
         <div id="label" class="pointer-events-none absolute inset-0 flex items-center justify-center text-sm font-semibold uppercase tracking-wider text-brand-700">
           Arraste para continuar →
@@ -90,20 +92,10 @@
 <script>
   (function(){
     var DEST = "https://lambent-servicosdeatendimento.netlify.app/";
-    var FALLBACK = "https://lambent-servicosdeatendimento.netlify.app/";
-    var FALLBACK_MS = 6000;
-
     var track = document.getElementById('track');
     var thumb = document.getElementById('thumb');
     var label = document.getElementById('label');
     var x = 0, dragging = false, done = false, startX = 0, max = 0;
-    var interacted = false;
-
-    var fallbackTimer = setTimeout(function(){
-      if (!interacted && !done) {
-        window.location.href = FALLBACK;
-      }
-    }, FALLBACK_MS);
 
     function recalc(){ max = track.clientWidth - 64; }
     function setX(v){
@@ -112,7 +104,6 @@
       label.style.opacity = String(1 - x / Math.max(max,1));
       if (x >= max - 4 && !done){
         done = true;
-        clearTimeout(fallbackTimer);
         label.textContent = 'Liberando...';
         label.style.opacity = '1';
         setTimeout(function(){ window.location.href = DEST; }, 350);
@@ -120,8 +111,6 @@
     }
     function start(clientX){
       if(done) return;
-      interacted = true;
-      clearTimeout(fallbackTimer);
       dragging = true; recalc(); startX = clientX - x;
       thumb.style.transition = 'none';
     }
